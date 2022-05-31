@@ -6,7 +6,7 @@ const {
   addApplyForJobToUser,
 } = require("../controllers/auth");
 const roles = require("../controllers/roles");
-const JobApplied = require("../models/job/JobApplied");
+const JobApplied = require("../models/Job/JobApplied");
 
 /* This is a post request to apply for a job. */
 router.post(
