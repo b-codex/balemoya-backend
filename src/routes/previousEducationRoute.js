@@ -69,7 +69,7 @@ router.patch(
       _experience.educationLevel || experience.educationLevel;
     experience.fieldOfStudy =
       _experience.fieldOfStudy || experience.fieldOfStudy;
-    experience.statedDate = _experience.statedDate || experience.statedDate;
+    experience.startedDate = _experience.startedDate || experience.startedDate;
     experience.endDate = _experience.endDate || experience.endDate;
     await experience.save();
 

@@ -13,9 +13,9 @@ const EducationalBackgroundSchema = new mongoose.Schema(
       type: String,
       required: [true, "FieldOfStudy is required"],
     },
-    statedDate: {
+    startedDate: {
       type: String,
-      required: [true, "StatedDate is required"],
+      required: [true, "StartedDate is required"],
     },
     endDate: {
       type: String,

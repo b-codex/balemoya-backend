@@ -69,8 +69,8 @@ router.patch(
       educationalBackground.educationLevel;
     educationalBackground.fieldOfStudy =
       _educationalBackground.fieldOfStudy || educationalBackground.fieldOfStudy;
-    educationalBackground.statedDate =
-      _educationalBackground.statedDate || educationalBackground.statedDate;
+    educationalBackground.startedDate =
+      _educationalBackground.startedDate || educationalBackground.startedDate;
     educationalBackground.endDate =
       _educationalBackground.endDate || educationalBackground.endDate;
     await educationalBackground.save();
