@@ -19,11 +19,11 @@ router.patch(
       if (post) {
         try {
           const updatedPost = await JobPost.findByIdAndUpdate(
-            req.params.id,
-            {
+            req.params.id, {
               $set: req.body,
-            },
-            { new: true }
+            }, {
+              new: true
+            }
           );
           res.status(200).json(updatedPost);
         } catch (err) {
@@ -109,11 +109,15 @@ router.get(
     const companyName = req.query.company;
     const tag = req.query.tag;
     const jobType = req.query.jobType;
+    const location = req.query.location;
+    const salary = req.query.salary;
     // add location
     try {
       let posts;
       if (companyName) {
-        posts = await JobPost.find({ companyName });
+        posts = await JobPost.find({
+          companyName
+        });
       } else if (tag) {
         posts = await JobPost.find({
           tag: {
@@ -123,6 +127,14 @@ router.get(
       } else if (jobType) {
         posts = await JobPost.find({
           jobType,
+        });
+      } else if (location) {
+        posts = await JobPost.find({
+          location,
+        });
+      } else if (salary) {
+        posts = await JobPost.find({
+          salary,
         });
       } else {
         posts = await JobPost.find();
