@@ -28,5 +28,5 @@ app.use("/users/conversation", conversationRoute);
 app.use("/users/message", messagesRoute);
 
 app.listen(port, () => {
-  console.log("Chat Service is up and running on port " + port);
+  console.log(`Chat Service is up and running on port  + ${port}`);
 });
