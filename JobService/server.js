@@ -15,14 +15,9 @@ const jobPostRoute = require("./src/routes/jobPostRoute");
 const applyJobRoute = require("./src/routes/applyJobRoute");
 const passport = require("passport");
 
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:5655",
-    methods: "GET,PUT,POST,OPTIONS",
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
+const port = process.env.PORT || 8001;
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -41,6 +36,6 @@ require("./src/routes/app-event")(app);
 // setting the route for the book
 app.use("/employer/jobPost", jobPostRoute);
 app.use("/employee/applyForJob", applyJobRoute);
-app.listen(8001, () => {
-  console.log("Job Service is up and running!");
+app.listen(port, () => {
+  console.log(`Job Service is up and running on port  + ${port}`);
 });

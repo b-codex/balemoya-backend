@@ -174,13 +174,13 @@ router.get("/", user_auth, async (req, res) => {
   }
 });
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const post = await JobApplied.find().populate("jobPost").exec();
-//     res.status(200).json(post);
-//   } catch (err) {
-//     res.status(500).json({ message: "server error", err, err });
-//   }
-// });
+router.get("/", async (req, res) => {
+  try {
+    const post = await JobApplied.find().populate("jobPost").exec();
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(500).json({ message: "server error", err, err });
+  }
+});
 
 module.exports = router;
