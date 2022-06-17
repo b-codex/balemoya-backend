@@ -12,10 +12,13 @@ const messagesRoute = require("./src/routes/messages");
 
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 8002
+const port = process.env.PORT || 8002;
 
 mongoose
-  .connect(DB_URI)
+  .connect(
+    DB_URI ||
+      "mongodb+srv://ChatService:chat123@chatservice.h8fok.mongodb.net/test"
+  )
   .then(console.log(" Database is up and running"))
   .catch((err) => console.log(err));
 
