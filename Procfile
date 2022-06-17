@@ -1,1 +1,1 @@
-web: npm run accountService
+web: npm start
