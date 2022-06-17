@@ -28,7 +28,7 @@ const reportResponse = require("./src/routes/reportResponse");
 const resumeBuilder = require("./src/routes/resumeBuilder");
 const securityQuestion = require("./src/routes/securityQuestion");
 
-const port = process.env.PORT || 5655
+const port = process.env.PORT || 5655;
 
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -64,5 +64,5 @@ app.use("/employee/resumeBuilder", resumeBuilder);
 app.use("/employee/securityQuestion", securityQuestion);
 
 app.listen(port, () => {
-  console.log("Account Service is up and running on port " + port);
+  console.log(`Account Service is up and running on port  + ${port}`);
 });
