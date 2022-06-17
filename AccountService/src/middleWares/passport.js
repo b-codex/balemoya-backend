@@ -8,7 +8,9 @@ const { Strategy, ExtractJwt } = require("passport-jwt");
 /* Setting the options for the passport strategy. */
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: SECRET,
+  secretOrKey:
+    SECRET ||
+    "ee1b63a26c73c6207848f395461476e262275e481eb48b345ea3312b1be22f862dd3eb625ca37119cee3923c3c8634bb8ff0282031172c5618c4de091a4c8bf2",
 };
 
 /**
