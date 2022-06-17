@@ -15,6 +15,8 @@ const jobPostRoute = require("./src/routes/jobPostRoute");
 const applyJobRoute = require("./src/routes/applyJobRoute");
 const passport = require("passport");
 
+const port = process.env.PORT || 8001
+
 app.use(
   cors({
     credentials: true,
@@ -41,6 +43,6 @@ require("./src/routes/app-event")(app);
 // setting the route for the book
 app.use("/employer/jobPost", jobPostRoute);
 app.use("/employee/applyForJob", applyJobRoute);
-app.listen(8001, () => {
-  console.log("Job Service is up and running!");
+app.listen(port, () => {
+  console.log("Job Service is up and running on port " + port);
 });
