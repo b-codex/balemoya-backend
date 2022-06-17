@@ -7,9 +7,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+const port = process.env.PORT || 8000
+
 app.use("/microservice/accountService", proxy("http://localhost:5655"));
 app.use("/microservice/jobService", proxy("http://localhost:8001"));
 app.use("/microservice/chatService", proxy("http://localhost:8002"));
-app.listen(8000, () => {
-  console.log("GateWay is Listening to port 8000");
+app.listen(port, () => {
+  console.log("GateWay is Listening to port " + port);
 });
