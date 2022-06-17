@@ -12,6 +12,8 @@ const messagesRoute = require("./src/routes/messages");
 
 app.use(bodyParser.json());
 
+const port = process.env.PORT || 8002
+
 mongoose
   .connect(DB_URI)
   .then(console.log(" Database is up and running"))
@@ -22,6 +24,6 @@ mongoose
 app.use("/users/conversation", conversationRoute);
 app.use("/users/message", messagesRoute);
 
-app.listen(8002, () => {
-  console.log("Chat Service is up and running!");
+app.listen(port, () => {
+  console.log("Chat Service is up and running on port " + port);
 });
