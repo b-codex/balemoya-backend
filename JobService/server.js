@@ -16,7 +16,6 @@ const applyJobRoute = require("./src/routes/applyJobRoute");
 const passport = require("passport");
 
 const port = process.env.PORT || 8001;
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,5 +36,5 @@ require("./src/routes/app-event")(app);
 app.use("/employer/jobPost", jobPostRoute);
 app.use("/employee/applyForJob", applyJobRoute);
 app.listen(port, () => {
-  console.log("Job Service is up and running on port " + port);
+  console.log(`Job Service is up and running! ${port}`);
 });
