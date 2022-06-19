@@ -28,8 +28,6 @@ const reportResponse = require("./src/routes/reportResponse");
 const resumeBuilder = require("./src/routes/resumeBuilder");
 const securityQuestion = require("./src/routes/securityQuestion");
 
-const port = process.env.PORT || 5655;
-
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(passport.initialize());
@@ -39,14 +37,17 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
 mongoose
-  .connect(DB_URI)
+  .connect(
+    DB_URI ||
+      "mongodb+srv://BaleMoya:balemoya123@balemoya.mgq0f.mongodb.net/test"
+  )
   .then(console.log(" Database is up and running"))
   .catch((err) => console.log(err));
 
 require("./src/middleWares/passport")(passport);
 
 const { Event } = require("./src/routes/app-event");
-
+const port = process.env.PORT || 5655;
 Event(app);
 
 app.use("/admin", admin);
@@ -64,5 +65,5 @@ app.use("/employee/resumeBuilder", resumeBuilder);
 app.use("/employee/securityQuestion", securityQuestion);
 
 app.listen(port, () => {
-  console.log(`Account Service is up and running on port  + ${port}`);
+  console.log(`Account Service is up and running! ${port}`);
 });
