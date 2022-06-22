@@ -12,6 +12,9 @@ const messagesRoute = require("./src/routes/messages");
 
 app.use(bodyParser.json());
 
+const server = require('./index.js');
+const { run_io_server } = require("./src");
+
 mongoose
   .connect(DB_URI)
   .then(console.log(" Database is up and running"))
@@ -24,4 +27,5 @@ app.use("/users/message", messagesRoute);
 
 app.listen(8002, () => {
   console.log("Chat Service is up and running!");
+  run_io_server()
 });
